@@ -2,6 +2,35 @@
 
 `email-untracker` (or Untracker for short) is a self-hosted CLI tool to investigate and undo tracking in email newsletters.
 
+## Table of contents
+
+* [Overview](#overview)
+* [Benefits](#benefits)
+* [Getting started: Try it on an email](#getting-started-try-it-on-an-email)
+  * [.eml files](#eml-files)
+  * [Gmail](#gmail)
+  * [Postfix / Dovecot / Maildir](#postfix--dovecot--maildir)
+* [Usage (CLI)](#usage-cli)
+  * [parse](#parse)
+  * [bounce](#bounce)
+  * [deliver](#deliver)
+* [Usage (email server)](#usage-email-server)
+  * [Setup](#setup)
+  * [Usage](#usage)
+  * [Forwarding loops](#forwarding-loops)
+* [Building](#building)
+* [How it works](#how-it-works)
+* [SaaS version](#saas-version)
+* [Sponsorware and licensing](#sponsorware-and-licensing)
+  * [Dual licensing](#dual-licensing)
+* [New features](#new-features)
+* [Open source, not open contribution](#open-source-not-open-contribution)
+* [Background reading](#background-reading)
+
+## Overview
+
+`email-untracker` (or Untracker for short) is a self-hosted CLI tool to investigate and undo tracking in email newsletters.
+
 * Remove tracking links
 * Remove tracking/spy pixels
 * Add-on to your self-hosted email server
@@ -25,7 +54,9 @@ And the tracking is only triggered once instead of everytime you click.
 
 ## Getting started: Try it on an email
 
-Download the binary to your computer. Then run:
+Choose a recent [release](https://github.com/bengtan/email-untracker/releases) and download the appropriate binary to your computer. Rename it to `email-untracker`.
+
+Then run:
 
 ```
 email-untracker parse -i newsletter.eml -v -h
@@ -40,7 +71,7 @@ Untracker will then:
 
 The `parse` command parses the file specified by `-i`. `-v` tells Untracker to be verbose. `-h` tells Untracker to process the HTML body.
 
-## .eml files
+### .eml files
 
 An .eml file is an email in it's raw form. It is a verbatim representation of the email as it is passed around between email servers or from email server to a mail delivery agent (MDA).
 
@@ -194,9 +225,11 @@ will compile a binary.
 
 Please read the [original article](https://bengtan.com/blog/email-cleaner-clean-tracking-links-and-pixels/#how-it-works).
 
+Note that Untracker currently only supports untracking newsletters from three major mailing list providers (MailChimp, ConvertKit, Substack). I’d happily add more. Just let me know.
+
 ## SaaS version
 
-If you don't have access to your mail server, you can use the [original Email Cleaner](https://bengtan.com/blog/email-cleaner-clean-tracking-links-and-pixels/) service (which is powered by Untracker). Please note that you’d be sending your email newsletters to a third party.
+If you don't have access to your mail server, you can use the [original Email Cleaner](https://bengtan.com/blog/email-cleaner-clean-tracking-links-and-pixels/) service (which is powered by Untracker). Please note that you’d be disclosing your email newsletters to a third party.
 
 ## Sponsorware and licensing
 
@@ -204,8 +237,8 @@ Untracker is [sponsorware](https://github.com/sponsorware/docs).
 
 There are two repositories:
 
-* A free, publicly available repository licensed under the [Affero General Public License Version 3](https://www.gnu.org/licenses/agpl-3.0.en.html) (AGPL) open source license, and 
-* A sponsors-only repository licensed under the [PolyForm Internal Use License 1.0.0](https://polyformproject.org/licenses/internal-use/1.0.0/) 'source available' license.
+* A free, publicly available [repository](https://github.com/bengtan/email-untracker) licensed under the [Affero General Public License Version 3](https://www.gnu.org/licenses/agpl-3.0.en.html) (AGPL) open source license, and 
+* A sponsors-only [repository](https://github.com/bengtan/email-untracker-sponsorware) licensed under the [PolyForm Internal Use License 1.0.0](https://polyformproject.org/licenses/internal-use/1.0.0/) 'source available' license.
 
 At the beginning:
 
@@ -221,6 +254,10 @@ From there-on:
 * Ongoing development and new features occurs in the sponsors-only repository.
 * (If there are 75 sponsors or more) When new versions or features are released, the source code of the old versions are published to the free repository.
 
+### Dual licensing
+
+If you wish to use Untracker under different license terms, please contact me.
+
 ## New features
 
 This is a speculative list. Whether these features eventuate will depend on sponsorships and other things.
@@ -232,6 +269,7 @@ This is a speculative list. Whether these features eventuate will depend on spon
 * Crawl images and embed them into the email. This can stop image-based tracking for all images, not just spy pixels.
 * ‘Deep inspection’ mode &mdash;  Crawls all links and images and report any which are trackers. Useful for detecting new, unknown trackers.
 * Crawling via a HTTP proxy (or tor?)
+* Coverage of more mailing list providers and tracking pixels.
 
 ## Open source, not open contribution
 
@@ -250,9 +288,3 @@ If you do submit source code patches, I’d happily look at them but I’d rewri
 ## Background reading
 
 https://bengtan.com/tags/untracker/
-
-
-
-
-<br /><br /><br /><br />
-

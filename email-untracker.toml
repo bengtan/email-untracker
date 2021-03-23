@@ -1,0 +1,27 @@
+# Configuration file for email-untracker
+#
+# Put this file in the user's home directory.
+
+# 'From:' email address. REQUIRED
+#
+# from = ""
+
+# 'To:' email address.
+# If this is specified, untracked emails will be sent/forwarded to this address.
+#
+# to = ""
+
+# The prefix that is prepended to the email 'Subject:' field
+#
+# subject_prefix = "[untracker]"
+
+# User agent string to use when crawling the web.
+#
+# user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36"
+
+# A combination of email headers which, if encountered, then the email should be treated as if it was not forwarded
+# Constructed as an array of string subarrays.
+# Each subarray corresponds to an email header. The first string in the subarray is the header.
+# for example: notForwardedHeaders = [["X-Forwarded-To", "untracker@example.com"], ["X-Forwarded-For", "untracker@internal.example.com untracker@example.com"]]
+#
+# notForwardedHeaders = []
